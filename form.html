@@ -9,28 +9,36 @@
 <body class="text-center">
     <h1>Silahkan isi biodata kamu</h1>
     
-    <form>
+    <form onsubmit="return simpanData(event)">
         <div class="form-group">
             <label>Nama</label>
-            <input type="text" name="nama" required>
+            <input type="text" id="inputNama" required>
         </div>
         <div class="form-group">
             <label>Email</label>
-            <input type="email" name="email" required>
+            <input type="email" id="inputEmail" required>
         </div>
         <div class="form-group">
             <label>Minat</label>
-            <select name="minat">
-                <option value="web">Web Development</option>
-                <option value="mobile">Mobile Apps</option>
-                <option value="design">Graphic Design</option>
+            <select id="inputMinat">
+                <option value="Web Development">Web Development</option>
+                <option value="Mobile Apps">Mobile Apps</option>
+                <option value="Graphic Design">Graphic Design</option>
             </select>
         </div>
         <button type="submit">Submit</button>
     </form>
 
+    <div id="hasilForm" style="display: none; margin-top: 20px; border: 2px solid #000; padding: 20px; display: inline-block; text-align: left;">
+        <h3>Konfirmasi Pendaftaran:</h3>
+        <p>Nama: <span id="tampilNama"></span></p>
+        <p>Email: <span id="tampilEmail"></span></p>
+        <p>Minat: <span id="tampilMinat"></span></p>
+    </div>
+
     <div style="margin-top: 20px;">
         <button onclick="window.location.href='index.html'">Kembali</button>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
