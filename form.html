@@ -3,21 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form</title>
+    <title>Form Biodata</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <center>
-        <h1>Silahkan isi biodata kamu</h1>
-        <div>
-            <form>
-                nama <input name="nama"> <br>
-                email <input email="email"> <br>
-                minat <select minat="minat"></select>
-
-            </form>
-            <button>submit</button>
+<body class="text-center">
+    <h1>Silahkan isi biodata kamu</h1>
+    
+    <form>
+        <div class="form-group">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
         </div>
-    </center>
-    <button onclick="window.location.href='index.html'">Kembali</button>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label>Minat</label>
+            <select name="minat">
+                <option value="web">Web Development</option>
+                <option value="mobile">Mobile Apps</option>
+                <option value="design">Graphic Design</option>
+            </select>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div style="margin-top: 20px;">
+        <button onclick="window.location.href='index.html'">Kembali</button>
+    </div>
 </body>
 </html>
