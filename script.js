@@ -1,18 +1,18 @@
-let daftarAnggota = [
+let daftarAnggota = JSON.parse(localStorage.getItem("daftarAnggota")) || [
   {
-    nama: "Fannandya sutan sakti pratama",
+    nama: "fannandya sutan sakti pratama",
     email: "fannandya.sutan.ft24@mail.umy.ac.id",
     minat: "Web Development",
   },
-  { nama: "Budi Santoso", email: "budi@gmail.com", minat: "Desain UI/UX" },
+  { nama: "ridha hawimau", email: "hawimau@gmail.com", minat: "Desain UI/UX" },
+    { nama: "Dhika merak", email: "merak@gmail.com", minat: "Data Science" }
 ];
 
 function tampilkanTabelAnggota() {
   let tbody = document.getElementById("memberTableBody");
   if (tbody) {
     tbody.innerHTML = "";
-    for (let i = 0; i < daftarAnggota.length; i++) {
-      let anggota = daftarAnggota[i];
+    daftarAnggota.forEach((anggota, i) => {
       tbody.innerHTML += `
                 <tr>
                     <td>${i + 1}</td>
@@ -21,7 +21,7 @@ function tampilkanTabelAnggota() {
                     <td>${anggota.minat}</td>
                 </tr>
             `;
-    }
+    });
   }
 }
 
@@ -34,18 +34,20 @@ function simpanData(event) {
   let inputEmail = document.getElementById("inputEmail").value;
   let inputMinat = document.getElementById("inputMinat").value;
 
-  daftarAnggota.push({
+  let dataBaru = {
     nama: inputNama,
     email: inputEmail,
     minat: inputMinat,
-  });
+  };
+
+  daftarAnggota.push(dataBaru);
+  localStorage.setItem("daftarAnggota", JSON.stringify(daftarAnggota));
 
   alert("Berhasil Mendaftar!\nNama: " + inputNama);
 
   document.getElementById("tampilNama").innerText = inputNama;
   document.getElementById("tampilEmail").innerText = inputEmail;
   document.getElementById("tampilMinat").innerText = inputMinat;
-
   document.getElementById("hasilForm").style.display = "block";
 
   return false;
@@ -57,14 +59,10 @@ function tampilInfoGambar() {
 
 function putarAudio() {
   let audio = document.getElementById("audioLatar");
-  if (audio) {
-    audio.play();
-  }
+  if (audio) audio.play();
 }
 
 function pauseAudio() {
   let audio = document.getElementById("audioLatar");
-  if (audio) {
-    audio.pause();
-  }
+  if (audio) audio.pause();
 }
